@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useSpring } from "framer-motion";
 
 export default function MouseGlow() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [, setMousePos] = useState({ x: 0, y: 0 });
 
   // Smooth, spring-based motion for a fluid effect
   const springX = useSpring(0, { stiffness: 80, damping: 20 });
