@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mar-portfolio-topaz.vercel.app
+
+# Sitemaps
+Sitemap: https://mar-portfolio-topaz.vercel.app/sitemap.xml
