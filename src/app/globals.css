@@ -33,6 +33,7 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-primary-highlight: var(--primary-highlight);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -41,6 +42,12 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer utilities {
+  .highlight {
+    @apply font-semibold text-primary-highlight;
+  }
 }
 
 :root {
@@ -79,13 +86,14 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --background: oklch(22.33% 0.042 262.57);
+  --foreground: oklch(97.19% 0.046 162.22);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  --primary: oklch(0.76 0.018 252.6);
+  --primary-highlight: oklch(0.93 0.013 254);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -119,4 +127,70 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes blink-border {
+  0%,
+  100% {
+    border-color: #4b5563; /* gray-700 for light */
+  }
+  50% {
+    border-color: #3b82f6; /* blue-500 pulse */
+  }
+}
+
+@keyframes blink-border-dark {
+  0%,
+  100% {
+    border-color: #d1d5db; /* gray-300 for dark */
+  }
+  50% {
+    border-color: #60a5fa; /* blue-400 pulse */
+  }
+}
+
+body > * {
+  font-family: var(--font-bricolage), sans-serif !important;
+}
+
+.dark .animate-blink-border {
+  animation: blink-border-dark 1.5s infinite ease-in-out;
+}
+
+.animate-blink-border {
+  animation: blink-border 1.5s infinite ease-in-out;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
 }
