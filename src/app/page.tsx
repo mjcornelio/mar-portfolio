@@ -6,7 +6,7 @@ import Showcase from "@/components/sections/showcase/showcase";
 
 export default function Home() {
   return (
-    <div className="font-sans max-w-3xl p-10 mt-25 mx-auto">
+    <div className="font-sans max-w-3xl p-5 md:p-10 mt-25 mx-auto">
       <Hero />
       <Skills />
       <Experience />

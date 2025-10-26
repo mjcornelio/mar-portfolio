@@ -160,12 +160,16 @@ export default function Experience() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: i * 0.2 }}
-                  className="relative flex flex-col sm:flex-row sm:items-start sm:gap-8 group p-5 rounded-xl border border-transparent hover:-translate-y-1 transition-all duration-500 ease-out dark:hover:bg-white/5 hover:bg-black/5"
+                  className="relative flex flex-col sm:flex-row sm:items-start sm:gap-8 group p-3 md:p-5 rounded-xl border border-transparent hover:-translate-y-1 transition-all duration-500 ease-out dark:hover:bg-white/5 hover:bg-black/5"
                 >
                   <div className="sm:w-3/4">
                     <h4 className="text-lg font-semibold text-primary dark:text-gray-100">
                       {role.title}
                     </h4>
+
+                    <div className="sm:w-1/4 text-sm font-medium text-primary sm:text-right mb-3 sm:mb-0 whitespace-nowrap block md:hidden mt-2">
+                      {role.year}
+                    </div>
 
                     <ul className="mt-3 text-primary text-sm list-disc list-outside ml-5">
                       {role.description.map((d, k) => (
@@ -185,7 +189,7 @@ export default function Experience() {
                       ))}
                     </div>
                   </div>
-                  <div className="sm:w-1/4 text-sm font-medium text-primary sm:text-right mb-3 sm:mb-0 whitespace-nowrap">
+                  <div className="sm:w-1/4 text-sm font-medium text-primary sm:text-right mb-3 sm:mb-0 whitespace-nowrap hidden md:block">
                     {role.year}
                   </div>
                 </motion.div>

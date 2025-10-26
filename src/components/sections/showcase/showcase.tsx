@@ -8,6 +8,15 @@ import { Badge } from "@/components/ui/badge";
 export default function Showcase() {
   const projects = [
     {
+      title: "SharpScript",
+      company: "NPM Package",
+      year: "2025",
+      link: "https://www.npmjs.com/package/sharpscript",
+      description:
+        "SharpScript is a robust Node.js CLI tool and library that automatically converts C# DTOs and Enums into TypeScript definitions. It eliminates manual type syncing and enables seamless, type-safe communication between backend and frontend.",
+      tech: ["Node.js", "TypeScript"],
+    },
+    {
       title: "QHelp - Qualimed Ticketing System",
       company: "Qualimed Hospital",
       year: "2023",
@@ -72,7 +81,7 @@ export default function Showcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: i * 0.2 }}
-            className="relative flex flex-col sm:flex-row sm:items-start sm:gap-8 group p-5 rounded-xl border border-transparent hover:-translate-y-1 transition-all duration-500 ease-out dark:hover:bg-white/5 hover:bg-black/5"
+            className="relative flex flex-col sm:flex-row sm:items-start sm:gap-8 group p-3 md:p-5 rounded-xl border border-transparent hover:-translate-y-1 transition-all duration-500 ease-out dark:hover:bg-white/5 hover:bg-black/5"
           >
             <div className="sm:w-3/4">
               <h4 className="text-lg font-semibold text-primary dark:text-gray-100 flex gap-2 items-center">
@@ -86,6 +95,11 @@ export default function Showcase() {
                   <ExternalLink size={14} />
                 </a>
               </h4>
+
+              <div className="sm:w-1/4 text-sm font-medium text-primary sm:text-right mb-3 sm:mb-0 whitespace-nowrap block md:hidden mt-2">
+                {project.year}
+              </div>
+
               <p className="text-sm text-primary pb-2 italic">
                 {project.company}
               </p>
@@ -104,7 +118,7 @@ export default function Showcase() {
                 ))}
               </div>
             </div>
-            <div className="sm:w-1/4 text-sm font-medium text-primary sm:text-right mb-3 sm:mb-0 whitespace-nowrap">
+            <div className="sm:w-1/4 text-sm font-medium text-primary sm:text-right mb-3 sm:mb-0 whitespace-nowrap hidden md:block">
               {project.year}
             </div>
           </motion.div>
